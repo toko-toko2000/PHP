@@ -20,13 +20,12 @@ if (isset($_SESSION['login']) == false) {
     <title>ろくまる農園 | スタッフ一覧</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&display=swap" rel="stylesheet">
     <style>
         body {
-            color: #6C3524;
-            background-color: #2CB4AD;
-            font-family: "RocknRoll One", sans-serif;
+            color: #898989;
+            background-color: #EFEFEF;
+            font-family: "Zen Kurenaido", sans-serif;
             letter-spacing: 0.05rem;
         }
 
@@ -41,11 +40,11 @@ if (isset($_SESSION['login']) == false) {
             margin: 100px auto 0;
             padding-bottom: 3px;
             width: fit-content;
+            color: #B2CBE4;
             font-size: 40px;
-            font-weight: 400;
+            font-weight: bold;
             line-height: (64/40)em;
             text-align: center;
-            border-bottom: dotted #EA618E 5px;
         }
 
         form {
@@ -65,16 +64,17 @@ if (isset($_SESSION['login']) == false) {
                 margin: 50px 20px;
                 padding: 20px 0;
                 width: 200px;
-                color: #6C3524;
+                color: #F5B2B2;
                 background-color: #ffffff;
-                font-family: "RocknRoll One", sans-serif;
+                font-family: "Zen Kurenaido", sans-serif;
                 font-weight: bold;
-                border: solid #6C3524 2px;
-                transition: .3s ease-out;
+                border: solid #898989 2px;
+                transition: .5s ease-out;
             }
 
             input[type="submit"]:hover {
-                border-color: #EA618E;
+                color: #EFEFEF;
+                background-color: #898989;
             }
         }
 
@@ -82,9 +82,10 @@ if (isset($_SESSION['login']) == false) {
             text-align: right;
 
             a {
+                margin-bottom: 80px;
                 position: relative;
                 display: inline-block;
-                color: #6C3524;
+                color: #898989;
                 font-weight: bold;
                 text-decoration: none;
             }
@@ -106,7 +107,7 @@ if (isset($_SESSION['login']) == false) {
             a:hover::before {
                 width: 132.48px;
                 height: 0;
-                border-color: #6C3524;
+                border-color: #898989;
             }
         }
     </style>

@@ -21,12 +21,12 @@ if (isset($_SESSION['login']) == false) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&display=swap" rel="stylesheet">
     <style>
         body {
-            color: #6C3524;
-            background-color: #2CB4AD;
-            font-family: "RocknRoll One", sans-serif;
+            color: #898989;
+            background-color: #efefef;
+            font-family: "Zen Kurenaido", sans-serif;
             letter-spacing: 0.05rem;
         }
 
@@ -39,8 +39,9 @@ if (isset($_SESSION['login']) == false) {
 
         .staff {
             margin-top: 100px;
+            color: #F5B2B2;
             background-color: #ffffff;
-            border: solid #6C3524 1px;
+            border: solid #898989 1px;
         }
 
         .info {
@@ -49,16 +50,16 @@ if (isset($_SESSION['login']) == false) {
 
         .info:first-child {
             padding-bottom: 50px;
-            border-bottom: solid #6C3524 1px;
+            border-bottom: solid #898989 1px;
         }
 
         .staffname {
             margin-top: 100px;
             padding: 50px 30;
-            color: #6c3524;
+            color: #F5B2B2;
             background-color: #ffffff;
             font-weight: bold;
-            border: solid #6c3524 2px;
+            border: solid #898989 2px;
             transition: .3s ease-out;
         }
 
@@ -71,15 +72,17 @@ if (isset($_SESSION['login']) == false) {
                 padding: 20px 0;
                 width: 200px;
                 height: 68px;
+                color: #F5B2B2;
                 background-color: #ffffff;
                 font-weight: bold;
                 text-align: center;
-                border: solid #6C3524 2px;
+                border: solid #898989 2px;
                 transition: .3s ease-out;
             }
 
             input:hover {
-                border-color: #EA618E;
+                color: #efefef;
+                background-color: #898989;
             }
         }
 
@@ -92,15 +95,17 @@ if (isset($_SESSION['login']) == false) {
                 padding: 20px 0;
                 width: 200px;
                 height: 68px;
+                color: #F5B2B2;
                 background-color: #ffffff;
                 font-weight: bold;
                 text-align: center;
-                border: solid #6C3524 2px;
+                border: solid #898989 2px;
                 transition: .3s ease-out;
             }
 
             input:hover {
-                border-color: #EA618E;
+                color: #efefef;
+                background-color: #898989;
             }
         }
     </style>
@@ -124,8 +129,7 @@ if (isset($_SESSION['login']) == false) {
             print 'スタッフ名が入力されていません';
             print '</div>';
         } else {
-            print '<div class="staff">';
-            print '<div class="info">';
+            print '<div class="staffName">';
             print 'スタッフ名：';
             print $staff_name;
             print '</div>';
@@ -162,6 +166,29 @@ if (isset($_SESSION['login']) == false) {
         }
         ?>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const staffName = document.querySelector('.staffName');
+            if (staffName) {
+                //.staffNameの親（.staff）を探す
+                const staffContainer = staffName.closest('.staff');
+
+                //.staff内のフォームを取得
+                const form = staffContainer.querySelector('form');
+                if (form) {
+                    //form内のbuttonとsubmitを切り離し
+                    const buttons = form.querySelectorAll('input[type="button"],input[type="submit"]');
+                    buttons.forEach(btn => {
+                        //.staffNameの直後に挿入
+                        staffName.insertAdjacentElement('afterend', btn.cloneNode(true));
+                    });
+                }
+
+                //.staffを削除
+                staffContainer.remove();
+            }
+        });
+    </script>
 </body>
 
 </html>

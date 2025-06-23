@@ -22,13 +22,13 @@ if (isset($_SESSION['login']) == false) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&display=swap" rel="stylesheet">
     <style>
         body {
             margin-top: 150px;
-            color: #6c3524;
-            background-color: #2cb4ad;
-            font-family: "RocknRoll One", sans-serif;
+            color: #898989;
+            background-color: #efefef;
+            font-family: "Zen Kurenaido", sans-serif;
             letter-spacing: 0.05rem;
             text-align: center;
         }
@@ -42,6 +42,7 @@ if (isset($_SESSION['login']) == false) {
 
         h1 {
             margin-top: 100px;
+            color: #B2CBE4;
             font-size: 50px;
             font-weight: bold;
             line-height: (80/50);
@@ -57,16 +58,17 @@ if (isset($_SESSION['login']) == false) {
             a {
                 width: 300px;
                 padding: 30px 0;
-                color: #6c3524;
+                color: #F5B2B2;
                 background-color: #ffffff;
                 font-weight: bold;
                 text-align: center;
-                border: solid #6c3524 2px;
+                border: solid #898989 2px;
                 transition: .3s ease-out;
             }
 
             a:hover {
-                border-color: #ea618e;
+                color: #efefef;
+                background-color: #898989;
             }
         }
     </style>

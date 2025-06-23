@@ -19,11 +19,14 @@ if (isset($_SESSION['login']) == false) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ろくまる農園 | スタッフ削除</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&display=swap" rel="stylesheet">
     <style>
         body {
-            color: #001E43;
-            background-color: #B2CBE4;
-            font-family: 'Times New Roman', Times, serif;
+            color: #898989;
+            background-color: #efefef;
+            font-family: "Zen Kurenaido", sans-serif;
             letter-spacing: 0.05rem;
         }
 
@@ -37,17 +40,26 @@ if (isset($_SESSION['login']) == false) {
         h2 {
             margin: 100px auto 0;
             width: fit-content;
+            color: #B2CBE4;
             font-size: 40px;
             font-weight: bold;
             line-height: (64/40)em;
-            border-bottom: solid #F19CA7 2px;
+        }
+
+        .staff {
+            margin-top: 100px;
+            color: #F5B2B2;
+            background-color: #ffffff;
+            border: solid #898989 1px;
         }
 
         .info {
-            margin-top: 80px;
-            padding: 50px 30px;
-            background-color: #ffffff;
-            border: solid #001E43 1px;
+            margin: 50px 30px;
+        }
+
+        .info:first-child {
+            padding-bottom: 50px;
+            border-bottom: solid #898989 1px;
         }
 
         .delete {
@@ -59,14 +71,16 @@ if (isset($_SESSION['login']) == false) {
                 padding: 20px 0;
                 width: 200px;
                 height: 68px;
+                color: #F5B2B2;
                 background-color: #ffffff;
                 font-weight: bold;
-                border: solid #d9d9d9 2px;
-                transition: .3s ease-out;
+                border: solid #898989 2px;
+                transition: .5s ease-out;
             }
 
             input:hover {
-                border-color: #F19CA7;
+                color: #efefef;
+                background-color: #898989;
             }
         }
     </style>
@@ -104,14 +118,15 @@ if (isset($_SESSION['login']) == false) {
 
         <h2>スタッフ削除</h2><br />
         <br />
-        <div class="info">
-            スタッフコード：
-            <?php print $staff_code; ?>
-        </div>
-        <br />
-        <div class="info">
-            スタッフ名：
-            <?php print $staff_name; ?>
+        <div class="staff">
+            <div class="info">
+                スタッフコード：
+                <?php print $staff_code; ?>
+            </div>
+            <div class="info">
+                スタッフ名：
+                <?php print $staff_name; ?>
+            </div>
         </div>
         <br />
         <div class="delete">
