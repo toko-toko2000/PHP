@@ -20,69 +20,138 @@ if (isset($_SESSION['login']) == false) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ろくまる農園 | トップ</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&display=swap"
+        rel="stylesheet">
     <style>
-        body {
-            margin-top: 150px;
-            color: #898989;
-            background-color: #efefef;
-            font-family: "Zen Kurenaido", sans-serif;
-            letter-spacing: 0.05rem;
+        h1 {
+            margin: 100px 0;
+            font-size: 36px;
+            font-weight: 600;
+            line-height: (57.6/36)em;
             text-align: center;
         }
 
-        .inner {
-            max-width: 1280px;
-            width: 87%;
-            margin-left: auto;
-            margin-right: auto;
-        }
 
-        h1 {
-            margin-top: 100px;
-            color: #B2CBE4;
-            font-size: 50px;
-            font-weight: bold;
-            line-height: (80/50);
-        }
-
-        .button {
-            margin-top: 150px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
+        .link {
+            text-align: center;
 
             a {
-                width: 300px;
-                padding: 30px 0;
-                color: #F5B2B2;
+                margin: 80px 20px;
+                padding: 20px 40px;
+                display: inline-block;
+                color: #000000;
                 background-color: #ffffff;
                 font-weight: bold;
-                text-align: center;
-                border: solid #898989 2px;
+                text-decoration: none;
+                border-radius: 50px;
                 transition: .3s ease-out;
+
+                p {
+                    position: relative;
+                }
+            }
+
+            p::before,
+            p::after {
+                position: absolute;
+                content: "";
+                width: 0;
+                height: 0;
+                transition: .5s ease-out;
+            }
+
+            p::before {
+                left: 50%;
+                bottom: -5px;
+                border-bottom: solid transparent 1px;
+            }
+
+            p::after {
+                right: 50%;
+                bottom: -5px;
+                border-bottom: solid transparent 1px;
+            }
+
+            p:hover::before,
+            p:hover::after {
+                width: 50px;
+                height: 0;
+                border-bottom-color: #ffffff;
             }
 
             a:hover {
-                color: #efefef;
-                background-color: #898989;
+                color: #ffffff;
             }
+        }
+
+        .link1 {
+            border: solid #eb6ea0 2px;
+        }
+
+        .link1:hover {
+            background-color: #eb6ea0;
+        }
+
+        .link2 {
+            border: solid #00a960 2px;
+
+            p:hover::before,
+            p:hover::after {
+                width: 25px;
+                height: 0;
+                border-bottom-color: #ffffff;
+            }
+        }
+
+        .link2:hover {
+            background-color: #00a960;
+        }
+
+        .link3 {
+            border: solid #0075c2 2px;
+        }
+
+        .link3:hover {
+            background-color: #0075c2;
+        }
+
+        .link4 {
+            border: solid #ee7800 2px;
+
+            p:hover::before,
+            p:hover::after {
+                width: 25px;
+                height: 0;
+                border-bottom-color: #ffffff;
+            }
+        }
+
+        .link4:hover {
+            background-color: #ee7800;
         }
     </style>
 </head>
 
 <body>
     <div class="inner">
-        <h1>ショップ管理トップメニュー<br /></h1>
-        <br />
-        <div class="button">
-            <a href="../staff/staff_list.php">スタッフ管理</a>
-            <a href="../product/pro_list.php">商品管理</a>
-            <a href="../order/order_download.php">注文ダウンロード</a>
-            <a href="staff_logout.php">ログアウト</a>
+        <h1>ショップ管理トップメニュー</h1>
+        <div class="link">
+            <a class="link1" href="../staff/staff_list.php">
+                <p>スタッフ管理</p>
+            </a>
+            <a class="link2" href="../product/pro_list.php">
+                <p>商品管理</p>
+            </a>
+            <a class="link3" href="../order/order_download.php">
+                <p>注文ダウンロード</p>
+            </a>
+            <a class="link4" href="staff_logout.php">
+                <p>ログアウト</p>
+            </a>
         </div>
     </div>
 </body>

@@ -58,25 +58,59 @@ if (isset($_SESSION['login']) == false) {
         .button {
             text-align: center;
 
-            input[type="submit"] {
-                display: inline-block;
+            .wrapper {
                 position: relative;
-                margin: 50px 20px;
-                padding: 20px 0;
-                width: 200px;
-                color: #F5B2B2;
-                background-color: #ffffff;
-                font-family: "Zen Kurenaido", sans-serif;
-                font-weight: bold;
-                border: solid #898989 2px;
-                transition: .5s ease-out;
+                display: inline-block;
+
+                input {
+                    margin: 80px 20px;
+                    padding: 20px 40px;
+                    position: relative;
+                    color: #000000;
+                    background-color: #ffffff;
+                    font-weight: bold;
+                    text-decoration: none;
+                    border: solid #eb6ea0 2px;
+                    border-radius: 50px;
+                    transition: .3s ease-out;
+                }
             }
 
-            input[type="submit"]:hover {
-                color: #EFEFEF;
-                background-color: #898989;
+
+            .wrapper::before,
+            .wrapper::after {
+                position: absolute;
+                content: "";
+                width: 0;
+                height: 0;
+                transition: .3s ease-out;
+            }
+
+            .wrapper::before {
+                left: 50%;
+                bottom: -5px;
+                border-bottom: solid transparent 1px;
+            }
+
+            .wrapper::after {
+                right: 50%;
+                bottom: -5px;
+                border-bottom: solid transparent 1px;
+            }
+
+            .wrapper:hover::before,
+            .wrapper:hover::after {
+                width: 50px;
+                height: 0;
+                border-bottom-color: #ffffff;
+            }
+
+            input:hover {
+                color: #ffffff;
+                background-color: #eb6ea0;
             }
         }
+
 
         .link {
             text-align: right;
@@ -145,7 +179,7 @@ if (isset($_SESSION['login']) == false) {
                 print '<br/>';
             }
             print '<div class=button>';
-            print '<input type="submit" name="disp" value="参照">';
+            print '<div class="wrapper"><input type="submit" name="disp" value="参照"></div>';
             print '<input type="submit" name="add" value="追加">';
             print '<input type="submit" name="edit" value="修正">';
             print '<input type="submit" name="delete" value="削除">';
