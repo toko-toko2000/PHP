@@ -20,35 +20,34 @@ if (isset($_SESSION['login']) == false) {
     <title>ろくまる農園 | スタッフ一覧</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&family=Zen+Maru+Gothic&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
     <style>
         body {
-            color: #898989;
-            background-color: #EFEFEF;
-            font-family: "Zen Kurenaido", sans-serif;
-            letter-spacing: 0.05rem;
+            color: #000000;
+            background-color: #ffffff;
+            font-family: "Noto Sans JP", sans-serif;
+            letter-spacing: (5/1000)rem;
         }
 
         .inner {
+            width: 90%;
             max-width: 1280px;
-            width: 87%;
             margin-left: auto;
             margin-right: auto;
         }
 
-        h2 {
-            margin: 100px auto 0;
-            padding-bottom: 3px;
-            width: fit-content;
-            color: #B2CBE4;
+        h1 {
+            margin-top: 100px;
             font-size: 40px;
             font-weight: bold;
-            line-height: (64/40)em;
+            line-height: (64/40);
             text-align: center;
         }
 
         form {
-            margin-top: 50px;
+            input:first-child {
+                margin-top: 100px;
+            }
 
             input {
                 margin-top: 50px;
@@ -56,92 +55,112 @@ if (isset($_SESSION['login']) == false) {
         }
 
         .button {
-            text-align: center;
+            margin-top: 100px;
 
-            .wrapper {
-                position: relative;
+            input[name="disp"] {
+                margin: 0 10px;
+                padding: 40px 0;
                 display: inline-block;
-
-                input {
-                    margin: 80px 20px;
-                    padding: 20px 40px;
-                    position: relative;
-                    color: #000000;
-                    background-color: #ffffff;
-                    font-weight: bold;
-                    text-decoration: none;
-                    border: solid #eb6ea0 2px;
-                    border-radius: 50px;
-                    transition: .3s ease-out;
-                }
-            }
-
-
-            .wrapper::before,
-            .wrapper::after {
-                position: absolute;
-                content: "";
-                width: 0;
-                height: 0;
+                width: 300px;
+                background-color: #ffffff;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: (32/20);
+                text-align: center;
+                border: solid #E95388 3px;
+                border-radius: 60px;
                 transition: .3s ease-out;
             }
 
-            .wrapper::before {
-                left: 50%;
-                bottom: -5px;
-                border-bottom: solid transparent 1px;
-            }
-
-            .wrapper::after {
-                right: 50%;
-                bottom: -5px;
-                border-bottom: solid transparent 1px;
-            }
-
-            .wrapper:hover::before,
-            .wrapper:hover::after {
-                width: 50px;
-                height: 0;
-                border-bottom-color: #ffffff;
-            }
-
-            input:hover {
+            input[name="disp"]:hover {
                 color: #ffffff;
-                background-color: #eb6ea0;
+                background-color: #E95388;
+            }
+
+            input[name="add"] {
+                margin: 0 10px;
+                padding: 40px 0;
+                display: inline-block;
+                width: 300px;
+                background-color: #ffffff;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: (32/20);
+                text-align: center;
+                border: solid #E95388 3px;
+                border-radius: 60px;
+                transition: .3s ease-out;
+            }
+
+            input[name="add"]:hover {
+                color: #ffffff;
+                background-color: #E95388;
+            }
+
+            input[name="edit"] {
+                margin: 0 10px;
+                padding: 40px 0;
+                display: inline-block;
+                width: 300px;
+                background-color: #ffffff;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: (32/20);
+                text-align: center;
+                border: solid #E95388 3px;
+                border-radius: 60px;
+                transition: .3s ease-out;
+            }
+
+            input[name="edit"]:hover {
+                color: #ffffff;
+                background-color: #E95388;
+            }
+
+            input[name="delete"] {
+                margin: 0 10px;
+                padding: 40px 0;
+                display: inline-block;
+                width: 300px;
+                background-color: #ffffff;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: (32/20);
+                text-align: center;
+                border: solid #E95388 3px;
+                border-radius: 60px;
+                transition: .3s ease-out;
+            }
+
+            input[name="delete"]:hover {
+                color: #ffffff;
+                background-color: #E95388;
             }
         }
 
-
         .link {
+            margin: 150px 0 100px;
             text-align: right;
 
             a {
-                margin-bottom: 80px;
-                position: relative;
+                padding: 40px 0;
                 display: inline-block;
-                color: #898989;
+                width: 300px;
+                color: #000000;
+                background-color: #ffffff;
+                font-size: 20px;
                 font-weight: bold;
+                line-height: (32/20);
+                text-align: center;
                 text-decoration: none;
-            }
-
-            a::before {
-                position: absolute;
-                content: "";
-                width: 0;
-                height: 0;
+                border: solid #E95388 3px;
+                border-radius: 60px;
                 transition: .3s ease-out;
             }
 
-            a::before {
-                bottom: 0;
-                left: 0;
-                border-bottom: solid transparent 1px;
-            }
-
-            a:hover::before {
-                width: 132.48px;
-                height: 0;
-                border-color: #898989;
+            a:hover {
+                color: #ffffff;
+                background-color: #E95388;
             }
         }
     </style>
@@ -165,7 +184,7 @@ if (isset($_SESSION['login']) == false) {
 
             $dbh = null;
 
-            print '<h2>スタッフ一覧</h2><br/><br/>';
+            print '<h1>スタッフ一覧</h1>';
 
             print '<form method="post" action="staff_branch.php">';
 
@@ -179,7 +198,7 @@ if (isset($_SESSION['login']) == false) {
                 print '<br/>';
             }
             print '<div class=button>';
-            print '<div class="wrapper"><input type="submit" name="disp" value="参照"></div>';
+            print '<input type="submit" name="disp" value="参照">';
             print '<input type="submit" name="add" value="追加">';
             print '<input type="submit" name="edit" value="修正">';
             print '<input type="submit" name="delete" value="削除">';
@@ -191,9 +210,10 @@ if (isset($_SESSION['login']) == false) {
         }
         ?>
 
-        <br />
         <div class="link">
-            <a href="../staff_login/staff_top.php">トップメニューへ</a><br />
+            <a href="../staff_login/staff_top.php">
+                トップメニューへ
+            </a>
         </div>
     </div>
 </body>

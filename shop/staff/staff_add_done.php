@@ -21,46 +21,46 @@ if (isset($_SESSION['login']) == false) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&family=Zen+Maru+Gothic&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
     <style>
         body {
-            color: #6C3524;
-            background-color: #2CB4AD;
-            font-family: "RocknRoll One", sans-serif;
-            letter-spacing: 0.05rem;
+            color: #000000;
+            background-color: #ffffff;
+            font-family: "Noto Sans JP", sans-serif;
+            letter-spacing: (5/1000)rem;
         }
 
         .inner {
+            width: 90%;
             max-width: 1280px;
-            width: 87%;
             margin-left: auto;
             margin-right: auto;
         }
 
         .info {
-            margin-top: 100px;
-            padding: 50px 30px;
-            background-color: #ffffff;
-            border: solid #6C3524 1px;
+            margin-top: 150px;
         }
 
-        .link {
-            margin-top: 80px;
+        .button {
+            margin-top: 150px;
             text-align: right;
 
             a {
+                padding: 40px 0;
                 display: inline-block;
-                padding: 20px 0;
-                width: 200px;
-                background-color: #ffffff;
+                width: 300px;
+                font-size: 20px;
                 font-weight: bold;
+                line-height: (32/20);
                 text-align: center;
-                border: solid #6C3524 2px;
+                border: solid #E95388 3px;
+                border-radius: 60px;
                 transition: .3s ease-out;
             }
 
             a:hover {
-                border-color: #EA618E;
+                color: #ffffff;
+                background-color: #E95388;
             }
         }
     </style>
@@ -93,7 +93,7 @@ if (isset($_SESSION['login']) == false) {
 
             print '<div class=info>';
             print $staff_name;
-            print 'さんを追加しました。<br/>';
+            print 'さんを追加しました。';
             print '</div>';
         } catch (Exception $e) {
             print 'ただいま障害により大変ご迷惑をお掛けしております。';
@@ -101,7 +101,7 @@ if (isset($_SESSION['login']) == false) {
         }
 
         ?>
-        <div class="link">
+        <div class="button">
             <a href="staff_list.php">戻る</a>
         </div>
     </div>

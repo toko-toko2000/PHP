@@ -21,65 +21,54 @@ if (isset($_SESSION['login']) == false) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&family=Zen+Maru+Gothic&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
     <style>
         body {
-            color: #898989;
-            background-color: #EFEFEF;
-            font-family: "Zen Kurenaido", sans-serif;
-            letter-spacing: 0.05rem;
+            color: #000000;
+            background-color: #ffffff;
+            font-family: "Noto Sans JP", sans-serif;
+            letter-spacing: (5/1000)rem;
         }
 
         .inner {
+            width: 90%;
             max-width: 1280px;
-            width: 87%;
             margin-left: auto;
             margin-right: auto;
         }
 
-        h2 {
-            margin: 100px auto 0;
-            width: fit-content;
-            color: #B2CBE4;
+        h1 {
+            margin-top: 150px;
             font-size: 40px;
             font-weight: bold;
-            line-height: (64/40)em;
+            line-height: (64/40);
+            text-align: center;
         }
 
-        .staff {
+        .info {
             margin-top: 100px;
-            color: #F5B2B2;
-            background-color: #ffffff;
-            border: solid #898989 1px;
-
-            .info {
-                margin: 50px 30px;
-            }
-
-            .info:first-child {
-                padding-bottom: 50px;
-                border-bottom: solid #898989 1px;
-            }
         }
 
         form {
+            margin-top: 150px;
             text-align: right;
 
             input {
-                margin: 80px 0;
-                padding: 20px 0;
-                width: 200px;
-                color: #F5B2B2;
-                background-color: #ffffff;
+                padding: 40px 0;
+                display: inline-block;
+                width: 300px;
+                font-size: 20px;
                 font-weight: bold;
+                line-height: (32/20);
                 text-align: center;
-                border: solid #898989 2px;
-                transition: .5s ease-out;
+                border: solid #E95388 3px;
+                border-radius: 60px;
+                transition: .3s ease-out;
             }
 
             input:hover {
-                color: #EFEFEF;
-                background-color: #898989;
+                color: #ffffff;
+                background-color: #E95388;
             }
         }
     </style>
@@ -115,20 +104,15 @@ if (isset($_SESSION['login']) == false) {
 
         ?>
 
-        <h2>スタッフ参照</h2><br />
-        <br />
-        <div class="staff">
-            <div class="info">
-                スタッフコード：
-                <?php print $staff_code; ?>
-            </div>
-            <div class="info">
-                スタッフ名：
-                <?php print $staff_name; ?>
-            </div>
+        <h1>スタッフ参照</h1>
+        <div class="info">
+            スタッフコード：
+            <?php print $staff_code; ?>
         </div>
-        <br />
-        <br />
+        <div class="info">
+            スタッフ名：
+            <?php print $staff_name; ?>
+        </div>
         <form>
             <input type="button" onclick="history.back()" value="戻る">
         </form>
