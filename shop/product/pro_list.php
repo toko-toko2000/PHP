@@ -20,35 +20,35 @@ if (isset($_SESSION['login']) == false) {
     <title>ろくまる農園 | 商品一覧</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&family=Zen+Maru+Gothic&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
     <style>
         body {
-            color: #898989;
-            background-color: #efefef;
-            font-family: "Zen Kurenaido", sans-serif;
-            letter-spacing: 0.05rem;
+            color: #000000;
+            background-color: #ffffff;
+            font-family: "Noto Sans JP", sans-serif;
+            letter-spacing: (5/1000)rem;
         }
 
         .inner {
+            width: 90%;
             max-width: 1280px;
-            width: 87%;
             margin-left: auto;
             margin-right: auto;
         }
 
-        h2 {
-            margin: 100px auto 0;
-            padding-bottom: 3px;
-            width: fit-content;
-            color: #B2CBE4;
+        h1 {
+            margin-top: 100px;
             font-size: 40px;
             font-weight: bold;
-            line-height: (64/40)em;
+            line-height: (64/40);
             text-align: center;
         }
 
         form {
-            margin-top: 50px;
+
+            input:first-child {
+                margin-top: 100px;
+            }
 
             input {
                 margin-top: 50px;
@@ -56,58 +56,112 @@ if (isset($_SESSION['login']) == false) {
         }
 
         .button {
-            text-align: center;
+            margin-top: 100px;
 
-            input[type="submit"] {
+            input[name="disp"] {
+                margin: 0 10px;
+                padding: 40px 0;
                 display: inline-block;
-                position: relative;
-                margin: 50px 20px;
-                padding: 20px 0;
-                width: 200px;
-                color: #F5B2B2;
+                width: 300px;
                 background-color: #ffffff;
-                font-family: "Zen Kurenaido", sans-serif;
+                font-size: 20px;
                 font-weight: bold;
-                border: solid #898989 2px;
-                transition: .5s ease-out;
+                line-height: (32/20);
+                text-align: center;
+                border: solid #009944 3px;
+                border-radius: 60px;
+                transition: .3s ease-out;
             }
 
-            input[type="submit"]:hover {
-                color: #EFEFEF;
-                background-color: #898989;
+            input[name="disp"]:hover {
+                color: #ffffff;
+                background-color: #009944;
+            }
+
+            input[name="add"] {
+                margin: 0 10px;
+                padding: 40px 0;
+                display: inline-block;
+                width: 300px;
+                background-color: #ffffff;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: (32/20);
+                text-align: center;
+                border: solid #009944 3px;
+                border-radius: 60px;
+                transition: .3s ease-out;
+            }
+
+            input[name="add"]:hover {
+                color: #ffffff;
+                background-color: #009944;
+            }
+
+            input[name="edit"] {
+                margin: 0 10px;
+                padding: 40px 0;
+                display: inline-block;
+                width: 300px;
+                background-color: #ffffff;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: (32/20);
+                text-align: center;
+                border: solid #009944 3px;
+                border-radius: 60px;
+                transition: .3s ease-out;
+            }
+
+            input[name="edit"]:hover {
+                color: #ffffff;
+                background-color: #009944;
+            }
+
+            input[name="delete"] {
+                margin: 0 10px;
+                padding: 40px 0;
+                display: inline-block;
+                width: 300px;
+                background-color: #ffffff;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: (32/20);
+                text-align: center;
+                border: solid #009944 3px;
+                border-radius: 60px;
+                transition: .3s ease-out;
+            }
+
+            input[name="delete"]:hover {
+                color: #ffffff;
+                background-color: #009944;
             }
         }
 
         .link {
+            margin: 150px 0 100px;
             text-align: right;
 
             a {
-                margin-bottom: 80px;
-                position: relative;
+                padding: 40px 0;
                 display: inline-block;
-                color: #898989;
+                width: 300px;
+                color: #000000;
+                background-color: #ffffff;
+                font-size: 20px;
                 font-weight: bold;
+                line-height: (32/20);
+                text-align: center;
                 text-decoration: none;
-            }
-
-            a::before {
-                position: absolute;
-                content: "";
-                width: 0;
-                height: 0;
+                border: solid #009944 3px;
+                border-radius: 60px;
                 transition: .3s ease-out;
             }
 
-            a::before {
-                bottom: 0;
-                left: 0;
-                border-bottom: solid transparent 1px;
-            }
-
-            a:hover::before {
-                width: 132.48px;
-                height: 0;
-                border-color: #898989;
+            a:hover {
+                color: #ffffff;
+                background-color: #009944;
             }
         }
     </style>
@@ -131,7 +185,7 @@ if (isset($_SESSION['login']) == false) {
 
             $dbh = null;
 
-            print '<h2>商品一覧</h2><br/><br/>';
+            print '<h1>商品一覧</h1><br/><br/>';
 
             print '<form method="post" action="pro_branch.php">';
 

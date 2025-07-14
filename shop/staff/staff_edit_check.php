@@ -21,91 +21,76 @@ if (isset($_SESSION['login']) == false) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&family=Zen+Maru+Gothic&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
     <style>
         body {
-            color: #898989;
-            background-color: #efefef;
-            font-family: "Zen Kurenaido", sans-serif;
-            letter-spacing: 0.05rem;
+            color: #000000;
+            background-color: #ffffff;
+            font-family: "Noto Sans JP", sans-serif;
+            letter-spacing: (5/1000)rem;
         }
 
         .inner {
+            width: 90%;
             max-width: 1280px;
-            width: 87%;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .staff {
-            margin-top: 100px;
-            color: #F5B2B2;
-            background-color: #ffffff;
-            border: solid #898989 1px;
-        }
-
         .info {
-            margin: 50px 30px;
-        }
-
-        .info:first-child {
-            padding-bottom: 50px;
-            border-bottom: solid #898989 1px;
-        }
-
-        .staffname {
             margin-top: 100px;
-            padding: 50px 30;
-            color: #F5B2B2;
-            background-color: #ffffff;
-            font-weight: bold;
-            border: solid #898989 2px;
-            transition: .3s ease-out;
+
+            input[type="text"] {
+                margin-top: 10px;
+                padding: 30px;
+                width: 700px;
+                background-color: #e3adc1;
+            }
         }
 
         form {
-            margin-top: 80px;
-            text-align: center;
 
-            input {
-                margin: 0 30px;
-                padding: 20px 0;
-                width: 200px;
-                height: 68px;
-                color: #F5B2B2;
-                background-color: #ffffff;
+            margin: 100px 0 100px;
+            text-align: right;
+
+            input[type="button"] {
+
+                margin: 0 50px;
+                padding: 40px 0;
+                display: inline-block;
+                width: 300px;
+                font-size: 20px;
                 font-weight: bold;
+                line-height: (32/20);
                 text-align: center;
-                border: solid #898989 2px;
+                border: solid #E95388 3px;
+                border-radius: 60px;
                 transition: .3s ease-out;
             }
 
-            input:hover {
-                color: #efefef;
-                background-color: #898989;
+            input[type="button"]:hover {
+                color: #ffffff;
+                background-color: #E95388;
             }
-        }
 
-        .button {
-            margin-top: 80px;
-            text-align: center;
+            input[type="submit"] {
 
-            input {
-                margin: 0 30px;
-                padding: 20px 0;
-                width: 200px;
-                height: 68px;
-                color: #F5B2B2;
-                background-color: #ffffff;
+                margin: 0 50px;
+                padding: 40px 0;
+                display: inline-block;
+                width: 300px;
+                font-size: 20px;
                 font-weight: bold;
+                line-height: (32/20);
                 text-align: center;
-                border: solid #898989 2px;
+                border: solid #E95388 3px;
+                border-radius: 60px;
                 transition: .3s ease-out;
             }
 
-            input:hover {
-                color: #efefef;
-                background-color: #898989;
+            input[type="submit"]:hover {
+                color: #ffffff;
+                background-color: #E95388;
             }
         }
     </style>
@@ -124,26 +109,24 @@ if (isset($_SESSION['login']) == false) {
         $staff_pass2 = $post['pass2'];
 
         if ($staff_name == '') {
-            print '<div class="staff">';
             print '<div class="info">';
-            print 'スタッフ名が入力されていません';
+            print 'スタッフ名が入力されていません<br/>';
             print '</div>';
         } else {
-            print '<div class="staffName">';
+            print '<div class="info">';
             print 'スタッフ名：';
             print $staff_name;
+            print '<br/>';
             print '</div>';
         }
         if ($staff_pass == '') {
             print '<div class="info">';
             print 'パスワードが入力されていません。<br/>';
             print '</div>';
-            print '</div>';
         }
         if ($staff_pass != $staff_pass2) {
             print '<div class="info">';
             print 'パスワードが一致しません。<br/>';
-            print '</div>';
             print '</div>';
         }
 
@@ -165,30 +148,7 @@ if (isset($_SESSION['login']) == false) {
             print '</form>';
         }
         ?>
+
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const staffName = document.querySelector('.staffName');
-            if (staffName) {
-                //.staffNameの親（.staff）を探す
-                const staffContainer = staffName.closest('.staff');
-
-                //.staff内のフォームを取得
-                const form = staffContainer.querySelector('form');
-                if (form) {
-                    //form内のbuttonとsubmitを切り離し
-                    const buttons = form.querySelectorAll('input[type="button"],input[type="submit"]');
-                    buttons.forEach(btn => {
-                        //.staffNameの直後に挿入
-                        staffName.insertAdjacentElement('afterend', btn.cloneNode(true));
-                    });
-                }
-
-                //.staffを削除
-                staffContainer.remove();
-            }
-        });
-    </script>
-</body>
 
 </html>

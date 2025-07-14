@@ -4,20 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ろくまる農園 | スタッフログイン</title>
+    <title>ろくまる農園 | 会員ログイン</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&family=Zen+Maru+Gothic&family=Zen+Old+Mincho&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            color: #000000;
+            background-color: #ffffff;
+            font-family: "Noto Sans JP", sans-serif;
+            letter-spacing: (5/1000)rem;
+        }
+
+        .inner {
+            width: 90%;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1 {
+            margin-top: 150px;
+            color: #d70035;
+            font-size: 40px;
+            font-weight: bold;
+            line-height: (64/40);
+            text-align: center;
+        }
+
+        .info {
+            margin-top: 100px;
+
+            p {
+                font-size: 20px;
+                line-height: (32/20);
+            }
+
+            input {
+                margin-top: 10px;
+                padding: 30px;
+                width: 700px;
+                background-color: #e29399;
+            }
+        }
+
+        .button {
+            margin-top: 150px;
+            text-align: right;
+
+            input {
+                padding: 40px 0;
+                display: inline-block;
+                width: 300px;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: (32/20);
+                text-align: center;
+                border: solid #d70035 3px;
+                border-radius: 60px;
+                transition: .3s ease-out;
+            }
+
+            input:hover {
+                color: #ffffff;
+                background-color: #d70035;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    会員ログイン<br />
-    <br />
-    <form method="post" action="member_login_check.php">
-        登録メールアドレス<br />
-        <input type="text" name="email"><br />
-        パスワード<br />
-        <input type="password" name="pass"><br />
+    <div class="inner">
+        <h1>会員ログイン</h1><br />
         <br />
-        <input type="submit" value="ログイン">
-    </form>
+        <form method="post" action="member_login_check.php">
+            <div class="info">
+                登録メールアドレス<br />
+                <input type="text" name="email">
+            </div>
+            <div class="info">
+                パスワード<br />
+                <input type="password" name="pass">
+            </div>
+            <br />
+            <div class="button">
+                <input type="submit" value="ログイン">
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>

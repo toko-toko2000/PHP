@@ -18,46 +18,98 @@ if (isset($_SESSION['login']) == false) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ろくまる農園 | 商品追加</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&family=Zen+Maru+Gothic&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+    <style>
+        body {
+            color: #000000;
+            background-color: #ffffff;
+            font-family: "Noto Sans JP", sans-serif;
+            letter-spacing: (5/1000)rem;
+        }
+
+        .inner {
+            width: 90%;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info {
+            margin-top: 150px;
+        }
+
+        .button {
+            margin-top: 150px;
+            text-align: right;
+
+            a {
+                padding: 40px 0;
+                display: inline-block;
+                width: 300px;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: (32/20);
+                text-align: center;
+                border: solid #009944 3px;
+                border-radius: 60px;
+                transition: .3s ease-out;
+            }
+
+            a:hover {
+                color: #ffffff;
+                background-color: #009944;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div class="inner">
 
-    <?php
+        <?php
 
-    require_once('../common/common.php');
+        require_once('../common/common.php');
 
 
-    try {
+        try {
 
-        $post = sanitize($_POST);
-        $pro_name = $post['name'];
-        $pro_price = $post['price'];
-        $pro_gazou_name = $post['gazou_name'];
+            $post = sanitize($_POST);
+            $pro_name = $post['name'];
+            $pro_price = $post['price'];
+            $pro_gazou_name = $post['gazou_name'];
 
-        $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
-        $user = 'root';
-        $password = 'root';
-        $dbh = new PDO($dsn, $user, $password);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = 'INSERT INTO mst_product(name,price,gazou) VALUES (?,?,?)';
-        $stmt = $dbh->prepare($sql);
-        $data[] = $pro_name;
-        $data[] = $pro_price;
-        $data[] = $pro_gazou_name;
-        $stmt->execute($data);
+            $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
+            $user = 'root';
+            $password = 'root';
+            $dbh = new PDO($dsn, $user, $password);
+            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = 'INSERT INTO mst_product(name,price,gazou) VALUES (?,?,?)';
+            $stmt = $dbh->prepare($sql);
+            $data[] = $pro_name;
+            $data[] = $pro_price;
+            $data[] = $pro_gazou_name;
+            $stmt->execute($data);
 
-        $dbh = null;
+            $dbh = null;
 
-        print $pro_name;
-        print 'を追加しました。<br/>';
-    } catch (Exception $e) {
-        print 'ただいま障害により大変ご迷惑をお掛けしております。';
-        exit();
-    }
+            print '<div class="info">';
+            print $pro_name;
+            print 'を追加しました。<br/>';
+            print '</div>';
+        } catch (Exception $e) {
+            print 'ただいま障害により大変ご迷惑をお掛けしております。';
+            exit();
+        }
 
-    ?>
+        ?>
 
-    <a href="pro_list.php">戻る</a>
+        <div class="button">
+            <a href="pro_list.php">戻る</a>
+        </div>
+    </div>
 </body>
 
 </html>

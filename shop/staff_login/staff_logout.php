@@ -24,8 +24,6 @@ session_destroy();
             padding: 50px 30px;
             position: relative;
             color: #000000;
-            background-color: #ffffff;
-            border: solid #ee7800 5px;
         }
 
         .link {
@@ -33,47 +31,16 @@ session_destroy();
 
             a {
                 margin: 80px 0;
-                padding: 20px 40px;
+                padding: 40px;
                 display: inline-block;
+                width: 300px;
                 color: #000000;
                 background-color: #ffffff;
                 font-weight: bold;
-                text-decoration: none;
+                text-align: center;
                 border: solid #ee7800 2px;
                 border-radius: 50px;
                 transition: .3s ease-out;
-
-                p {
-                    position: relative;
-                }
-            }
-
-            p::before,
-            p::after {
-                position: absolute;
-                content: "";
-                width: 0;
-                height: 0;
-                transition: .5s ease-out;
-            }
-
-            p::before {
-                left: 50%;
-                bottom: -5px;
-                border-bottom: solid transparent 1px;
-            }
-
-            p::after {
-                right: 50%;
-                bottom: -5px;
-                border-bottom: solid transparent 1px;
-            }
-
-            p:hover::before,
-            p:hover::after {
-                width: 50px;
-                height: 0;
-                border-bottom-color: #ffffff;
             }
 
             a:hover {
@@ -91,7 +58,7 @@ session_destroy();
         </div>
         <div class="link">
             <a href="../staff_login/staff_login.html">
-                <p>ログイン画面へ</p>
+                ログイン画面へ
             </a>
         </div>
     </div>

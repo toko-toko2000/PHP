@@ -21,33 +21,67 @@ if (isset($_SESSION['login']) == false) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&family=Pacifico&family=RocknRoll+One&family=Sacramento&family=Zen+Kurenaido&family=Zen+Maru+Gothic&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
     <style>
         body {
-            color: #898989;
-            background-color: #EFEFEF;
-            font-family: "Zen Kurenaido", sans-serif;
-            letter-spacing: 0.05rem;
+            color: #000000;
+            background-color: #ffffff;
+            font-family: "Noto Sans JP", sans-serif;
+            letter-spacing: (5/1000)rem;
         }
 
         .inner {
+            width: 90%;
             max-width: 1280px;
-            width: 87%;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .product {
-            margin-top: 80px;
-            color: #F5B2B2;
-            background-color: #ffffff;
-            border: solid #898989 1px;
+        .info {
+            margin-top: 150px;
         }
 
-        .info {
-            margin: 50px 30px;
-            padding-bottom: 50px;
-            border-bottom: solid #898989 1px;
+        form {
+            margin: 150px 0;
+            text-align: right;
+
+            input[value="戻る"] {
+                margin: 0 20px;
+                padding: 40px 0;
+                display: inline-block;
+                width: 300px;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: (32/20);
+                text-align: center;
+                border: solid #009944 3px;
+                border-radius: 60px;
+                transition: .3s ease-out;
+            }
+
+            input[value="戻る"]:hover {
+                color: #ffffff;
+                background-color: #009944;
+            }
+
+            input[value="OK"] {
+                margin: 0 20px;
+                padding: 40px 0;
+                display: inline-block;
+                width: 300px;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: (32/20);
+                text-align: center;
+                border: solid #009944 3px;
+                border-radius: 60px;
+                transition: .3s ease-out;
+            }
+
+            input[value="OK"]:hover {
+                color: #ffffff;
+                background-color: #009944;
+            }
         }
     </style>
 </head>
@@ -64,10 +98,11 @@ if (isset($_SESSION['login']) == false) {
         $pro_gazou = $_FILES['gazou'];
 
         if ($pro_name == '') {
-            print '<div class="product">';
             print '<div class="info">';
             print '商品名が入力されていません。<br/>';
+            print '</div>';
         } else {
+            print '<div class="info">';
             print '商品名：';
             print $pro_name;
             print '</div>';
@@ -76,7 +111,9 @@ if (isset($_SESSION['login']) == false) {
         if (preg_match(' /\A[0-9]+\z/ ', $pro_price) == 0) {
             print '<div class="info">';
             print '価格をきちんと入力してください。<br/>';
+            print '</div>';
         } else {
+            print '<div class="info">';
             print '価格';
             print $pro_price;
             print '円<br/>';
@@ -86,10 +123,11 @@ if (isset($_SESSION['login']) == false) {
             if ($pro_gazou['size'] > 1000000) {
                 print '<div class="info">';
                 print '画像が大きすぎます。';
+                print '</div>';
             } else {
                 move_uploaded_file($pro_gazou['tmp_name'], './gazou/' . $pro_gazou['name']);
+                print '<div class="info">';
                 print '<img src="./gazou/' . $pro_gazou['name'] . '">';
-                print '</div>';
                 print '</div>';
             }
         }
@@ -98,7 +136,9 @@ if (isset($_SESSION['login']) == false) {
             print '<input type="button" onclick="history.back()" value="戻る">';
             print '</form>';
         } else {
+            print '<div class="info">';
             print '上記の商品を追加します。';
+            print '</div>';
             print '<form method="post" action="pro_add_done.php">';
             print '<input type="hidden" name="name" value="' . $pro_name . '">';
             print '<input type="hidden" name="price" value="' . $pro_price . '">';
