@@ -2,9 +2,10 @@
 session_start();
 session_regenerate_id(true);
 if (isset($_SESSION['member_login']) == false) {
+    print '<div class="login">';
     print 'ようこそゲスト様　';
-    print '<a href="member_login.html">会員ログイン</a><br/>';
-    print '<br/>';
+    print '<a href="member_login.html">会員ログイン</a>';
+    print '</div>';
 } else {
     print 'ようこそ';
     print $_SESSION['member_name'];
@@ -38,6 +39,18 @@ if (isset($_SESSION['member_login']) == false) {
             margin-right: auto;
         }
 
+        .login {
+            a {
+                display: inline-block;
+                transition: .3s ease-out;
+            }
+
+            a:hover {
+                color: #d70035;
+                transform: scale(1.1);
+            }
+        }
+
         h1 {
             margin-top: 100px;
             font-size: 40px;
@@ -46,8 +59,9 @@ if (isset($_SESSION['member_login']) == false) {
             text-align: center;
         }
 
-        .info {
+        .info a {
             margin-top: 50px;
+            display: inline-block;
             position: relative;
         }
 
@@ -55,25 +69,27 @@ if (isset($_SESSION['member_login']) == false) {
             margin-top: 100px;
         }
 
-        .info::after {
+        .info a::before {
+            margin-bottom: -5px;
             position: absolute;
             content: "";
-            width: 0;
+            width: 100%;
             height: 0;
+            bottom: 0;
+            left: 0;
+            border-bottom: solid transparent 2px;
+            border-left: solid transparent 2px;
+            transform: scaleX(0);
             transition: .3s ease-out;
         }
 
-        .info::after {
-            bottom: 0;
-            left: 0;
-            border-top: solid transparent 2px;
-            border-left: solid transparent 2px;
+        .info a:hover {
+            color: #d70035;
         }
 
-        .info:hover::after {
-            width: 300px;
-            height: 0;
-            border-color: #d9d9d9;
+        .info a:hover::before {
+            border-color: #d70035;
+            transform: scaleX(1);
         }
 
         .button {

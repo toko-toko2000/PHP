@@ -2,13 +2,18 @@
 session_start();
 session_regenerate_id(true);
 if (isset($_SESSION['login']) == false) {
-    print 'ログインされていません。<br/>';
-    print '<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
-    exit();
+    $login = false;
+    $message = '<div class="info">';
+    $message .= 'ログインされていません。';
+    $message .= '</div>';
+    $message .= '<div class="link">';
+    $message .= '<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+    $message .= '</div>';
 } else {
-    print $_SESSION['staff_name'];
-    print 'さんログイン中<br/>';
-    print '<br/>';
+    $login = true;
+    $message = $_SESSION['staff_name'];
+    $message .= 'さんログイン中<br/>';
+    $message .= '<br/>';
 }
 ?>
 
@@ -36,6 +41,36 @@ if (isset($_SESSION['login']) == false) {
             max-width: 1280px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .info {
+            margin-top: 100px;
+            padding: 50px 30px;
+            position: relative;
+            color: #000000;
+        }
+
+        .link {
+            text-align: right;
+
+            a {
+                margin: 80px 0;
+                padding: 40px;
+                display: inline-block;
+                width: 300px;
+                color: #000000;
+                background-color: #ffffff;
+                font-weight: bold;
+                text-align: center;
+                border: solid #ee7800 2px;
+                border-radius: 50px;
+                transition: .3s ease-out;
+            }
+
+            a:hover {
+                color: #ffffff;
+                background-color: #ee7800;
+            }
         }
 
         h1 {
@@ -130,21 +165,24 @@ if (isset($_SESSION['login']) == false) {
 
 <body>
     <div class="inner">
-        <h1>ショップ管理トップメニュー</h1>
-        <div class="button">
-            <a class="button1" href="../staff/staff_list.php">
-                <p>スタッフ管理</p>
-            </a>
-            <a class="button2" href="../product/pro_list.php">
-                <p>商品管理</p>
-            </a>
-            <a class="button3" href="../order/order_download.php">
-                <p>注文ダウンロード</p>
-            </a>
-            <a class="button4" href="staff_logout.php">
-                <p>ログアウト</p>
-            </a>
-        </div>
+        <?php print $message; ?>
+        <?php if ($login) { ?>
+            <h1>ショップ管理トップメニュー</h1>
+            <div class="button">
+                <a class="button1" href="../staff/staff_list.php">
+                    <p>スタッフ管理</p>
+                </a>
+                <a class="button2" href="../product/pro_list.php">
+                    <p>商品管理</p>
+                </a>
+                <a class="button3" href="../order/order_download.php">
+                    <p>注文ダウンロード</p>
+                </a>
+                <a class="button4" href="staff_logout.php">
+                    <p>ログアウト</p>
+                </a>
+            </div>
+        <?php } ?>
     </div>
 </body>
 

@@ -37,7 +37,7 @@ if (isset($_SESSION['login']) == false) {
             margin-right: auto;
         }
 
-        h1 {
+        h2 {
             margin-top: 100px;
             font-size: 40px;
             font-weight: bold;
