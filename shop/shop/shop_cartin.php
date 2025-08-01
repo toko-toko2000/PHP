@@ -7,11 +7,13 @@ if (isset($_SESSION['member_login']) == false) {
     print '<a href="member_login.html">会員ログイン</a>';
     print '</div>';
 } else {
+    print '<div class="login">';
     print 'ようこそ';
     print $_SESSION['member_name'];
-    print '様';
+    print '様 ';
     print '<a href="member_logout.php">ログアウト</a><br/>';
     print '<br/>';
+    print '</div>';
 }
 ?>
 <!DOCTYPE html>
@@ -116,7 +118,9 @@ if (isset($_SESSION['member_login']) == false) {
 
         ?>
 
-        カートに追加しました。<br />
+        <div class="info">
+            カートに追加しました。<br />
+        </div>
         <br />
         <div class="link">
             <a href="shop_list.php">商品一欄に戻る</a>
