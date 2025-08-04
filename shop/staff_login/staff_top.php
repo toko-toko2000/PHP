@@ -33,6 +33,8 @@ if (isset($_SESSION['login']) == false) {
             color: #000000;
             background-color: #ffffff;
             font-family: "Noto Sans JP", sans-serif;
+            font-size: 16px;
+            line-height: (25.6/16);
             letter-spacing: (5/1000)rem;
         }
 
@@ -41,6 +43,14 @@ if (isset($_SESSION['login']) == false) {
             max-width: 1280px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        h1 {
+            margin-top: 100px;
+            font-size: 40px;
+            font-weight: bold;
+            line-height: (64/40);
+            text-align: center;
         }
 
         .info {
@@ -71,14 +81,6 @@ if (isset($_SESSION['login']) == false) {
                 color: #ffffff;
                 background-color: #ee7800;
             }
-        }
-
-        h1 {
-            margin-top: 150px;
-            font-size: 40px;
-            font-weight: bold;
-            line-height: (64/40);
-            text-align: center;
         }
 
         .button {

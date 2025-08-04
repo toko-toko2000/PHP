@@ -118,7 +118,7 @@ if (isset($_SESSION['member_login']) == false) {
 
         .link {
             margin: 150px 0 100px;
-            text-align: right;
+            text-align: center;
 
             .link1 {
                 margin: 0 30px;
